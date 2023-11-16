@@ -8,6 +8,9 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterComponent
   ],
   imports: [
+    MatIconModule,
+    MatListModule,
+    MatSidenavModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule
