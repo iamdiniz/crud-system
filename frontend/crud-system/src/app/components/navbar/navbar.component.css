@@ -1,0 +1,28 @@
+.navbar {
+    background-color: #343541;
+    color: white;
+    padding: 10px;
+}
+
+.navbar-brand {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style-type: none;
+    margin: 5;
+    padding: 0;
+}
+
+.nav-item {
+    margin-right: 10px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+}
+
