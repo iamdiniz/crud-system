@@ -2,25 +2,25 @@
     <mat-card>
         <mat-card-title>Contact</mat-card-title>
         <mat-card-content>
-            <form class="contact-form">
+            <div class="contact-form">
                 <mat-form-field>
                     <mat-label>Name</mat-label>
-                    <input matInput placeholder="put a name">
+                    <input required [(ngModel)]="name" name="name" matInput placeholder="put a name">
                   </mat-form-field>
 
                   <mat-form-field>
                     <mat-label>Email</mat-label>
-                    <input type="email" placeholder="put a email" matInput>
+                    <input required [(ngModel)]="email" name="email" type="email" placeholder="put a email" matInput>
                   </mat-form-field>
 
                   <mat-form-field>
                     <mat-label>Message:</mat-label>
-                    <textarea matInput placeholder="Message"></textarea>
+                    <textarea [(ngModel)]="message" name="message" matInput placeholder="Message"></textarea>
                   </mat-form-field>
 
-                  <button mat-raised-button color="primary">Send</button>
+                  <button mat-raised-button (click)="sendForm()" color="primary">Send</button>
 
-            </form>
+            </div>
         </mat-card-content>
       </mat-card>
 </div>
