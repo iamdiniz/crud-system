@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent {
   password: string;
   loginMessage: string;
   
-  constructor(private router: Router) {
+  constructor(private router: Router, private shared: SharedService) {
     this.username= "";
     this.password= "";
     this.loginMessage= "";
@@ -22,6 +23,7 @@ export class LoginComponent {
 
     if(this.username == "admin" && this.password == "admin") {
       this.loginMessage = "Login Successful";
+      this.shared.setUsername("Guilherme Diniz");
       this.router.navigate(["home"])
     } else {
       this.loginMessage = "Login Failed";
