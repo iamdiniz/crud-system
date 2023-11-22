@@ -21,10 +21,10 @@ export class LoginComponent {
 
   btnLogin():void {
 
-    if(this.username == "admin" && this.password == "admin") {
+    if(this.username == "admin" || this.username == "123") {
       this.loginMessage = "Login Successful";
-      this.shared.setUsername("Guilherme Diniz");
-      this.router.navigate(["home"])
+      this.shared.setUsername(this.username);
+      // this.router.navigate(["home"])
     } else {
       this.loginMessage = "Login Failed";
     }

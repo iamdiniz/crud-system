@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
@@ -11,10 +12,20 @@ export class NavbarComponent {
 
   usuarioLogado: string = "";
 
+  subscription !: Subscription;
+
   constructor(private shared: SharedService) {
-    shared.getUsername().subscribe((retorno: string) => {
+   
+  }
+
+  ativar() {
+    this.subscription = this.shared.getUsername().subscribe((retorno: string) => {
       this.usuarioLogado = retorno;
-    })
+    });
+  }
+
+  desativar() {
+    this.subscription.unsubscribe();
   }
 
   public showMenu() {
