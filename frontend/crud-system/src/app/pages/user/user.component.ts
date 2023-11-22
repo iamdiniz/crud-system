@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserModel } from './models/user.model';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-user',
@@ -10,23 +11,25 @@ export class UserComponent implements OnInit {
   dataSource: UserModel[] = [];
   userAdd: UserModel = new UserModel();
 
+  constructor(private userService: UserService) { }
+
   ngOnInit(): void {
-    this.dataSource = [
-      {
-        id: 0,
-        name: 'teste',
-        email: 'teste@gmail.com'
-      },
-      {
-        id: 1,
-        name: 'teste1',
-        email: 'teste1@gmail.com'
-      },
-    ];
+    this.dataSource = [];
+    this.loadUsers();
+  }
+
+  loadUsers() {
+    this.userService.getAll().subscribe((result: UserModel[]) => {
+      console.log(result);
+      this.dataSource = result;
+    })
   }
 
   btnSearch(user: UserModel): void {
-      alert('buscando');
+      this.userService.getById(user.id).subscribe((resultado: UserModel) => {
+          let json = JSON.stringify(resultado);
+          alert(json);
+      });
   }
 
   btnDelete(user: UserModel): void {
