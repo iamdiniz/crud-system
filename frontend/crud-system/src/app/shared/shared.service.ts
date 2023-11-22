@@ -9,6 +9,15 @@ export class SharedService {
 
   constructor() { }
 
+  isAuthenticated(): boolean {
+    let user = this._username.getValue();
+    if(user) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   setUsername(username: string) {
     this._username.next(username);
   }

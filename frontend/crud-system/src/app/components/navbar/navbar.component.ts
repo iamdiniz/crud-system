@@ -12,20 +12,10 @@ export class NavbarComponent {
 
   usuarioLogado: string = "";
 
-  subscription !: Subscription;
-
   constructor(private shared: SharedService) {
-   
-  }
-
-  ativar() {
-    this.subscription = this.shared.getUsername().subscribe((retorno: string) => {
+    this.shared.getUsername().subscribe((retorno: string) => {
       this.usuarioLogado = retorno;
     });
-  }
-
-  desativar() {
-    this.subscription.unsubscribe();
   }
 
   public showMenu() {
